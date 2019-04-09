@@ -1,0 +1,46 @@
+<link rel="shortcut icon" href="" />
+
+<title>TAREAS-OP !!!</title>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "js/ext-6.5.2/theme-triton/theme-triton-all.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "js/ext-6.5.2/theme-triton/charts-all.css" %}" />
+<link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="{% static "js/ext-6.5.2/ext-all-debug.js" %}"></script>
+<script type="text/javascript" src="{% static "js/ext-6.5.2/theme-triton/theme-triton-debug.js" %}"></script>
+<script type="text/javascript" src="{% static "js/ext-6.5.2/charts.js" %}"></script>
+<script type="text/javascript" src="{% static "js/ext-6.5.2/locale-es.js" %}"></script>
+
+<script type="text/javascript">
+    Ext.Loader.setConfig({
+        enabled: true
+    });
+    Ext.Loader.setPath({
+        'Ext.ux': '/static/js/ext-6.5.2/shared'
+    });
+    Ext.namespace('Me', 'Me.msg');
+    Me.show_toast = function(msg){Ext.toast({html:msg,closable:false,align:'t',slideInDuration:400,minWidth:208});};
+    Me.msg.question = function(message){Ext.Msg.show({title:'Atención !!!',message:message,buttons:Ext.MessageBox.OK,icon:Ext.Msg.QUESTION});};
+    Me.msg.error = function(message){Ext.Msg.show({title:'Error ???',message:message,buttons:Ext.MessageBox.OK,icon:Ext.Msg.ERROR});};
+    Me.msg.warning = function(message){Ext.Msg.show({title:'Advertencia',message:message,buttons:Ext.MessageBox.OK,icon:Ext.Msg.WARNING});};
+    Ext.application({
+        name: 'etecsa',
+        appFolder: '/static',
+        controllers: [
+            'to_viewport',
+            'to_categoria',
+            'to_generadas.generadas',
+            'to_asignadas.asignadas',
+            'to_generadas.prorrogas',
+            'to_generadas.periodo_chequeo',
+            'to_generadas.ejecutante',
+            'to_generadas.upload',
+            'to_generadas.resumen_chequeo',
+            'to_asignadas.ejecutante_accion'
+        ],
+        launch: function() {
+            Ext.create('etecsa.view.to_viewport');
+        }
+    });
+</script>

@@ -1,0 +1,24 @@
+@import url(login.css);
+
+.check:before{font:16px/1 FontAwesome;color: rgb(67, 255, 72);content:"\f00c"}
+.trash:before{font:16px/1 FontAwesome;color: #606060;content:"\f1f8"}
+.close:before{font:16px/1 FontAwesome;color: rgb(255, 61, 67);content:"\f00d"}
+
+.logout:before{font:16px/1 FontAwesome;color: #bd4658;content:"\f023"}
+.enlase:before{font:16px/1 FontAwesome;color: #606060;content:"\f0c1"}
+.nomenclador:before{font:16px/1 FontAwesome;color: #5e5e5e;content:"\f015"}
+.seguridad:before{font:16px/1 FontAwesome;color: #5e5e5e;content:"\f132"}
+
+.tareas-op-p-css:before{font:16px/1 FontAwesome;color: #606060;content:"\f02c"}
+.options-menu-css:before{font:16px/1 FontAwesome;color: #606060;content:"\f0ca"}
+
+.grid-row-publica-false-css {
+    background-color: rgba(255,67,69,0.2);
+}
+
+.before{font:16px/1 FontAwesome;color: rgba(79, 79, 79, 0.25);content:"\f0ca"}
+
+.x-grid-group-hd {
+    background-color: #f3f9ff;
+
+}

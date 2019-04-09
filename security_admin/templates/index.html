@@ -1,0 +1,43 @@
+<link rel="shortcut icon" href="{% block favicon %}{% endblock %}" />
+
+<title>{% block title %}{% endblock %}</title>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static "js/ext-6.5.2/theme-triton/theme-triton-all.css" %}" />
+<link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="{% static "js/ext-6.5.2/ext-all-debug.js" %}"></script>
+<script type="text/javascript" src="{% static "js/ext-6.5.2/theme-triton/theme-triton-debug.js" %}"></script>
+<script type="text/javascript" src="{% static "js/ext-6.5.2/locale-es.js" %}"></script>
+
+<script type="text/javascript">
+{#{% include "AdminBundle:Admin:globalScript.html.twig" %}#}
+{#    Ext.Loader.setConfig({#}
+{#        enabled: true#}
+{#    });#}
+    Ext.Loader.setPath({
+        'Ext.ux': '/static/js/ext-6.5.2/shared'
+    });
+    Ext.namespace('Me', 'Me.msg');
+    Me.show_toast = function(msg){Ext.toast({html:msg,closable:false,align:'t',slideInDuration:400,minWidth:208});};
+    Me.msg.question = function(message){Ext.Msg.show({title:'Atención !!!',message:message,buttons:Ext.MessageBox.OK,icon:Ext.Msg.QUESTION});};
+    Me.msg.error = function(message){Ext.Msg.show({title:'Error ???',message:message,buttons:Ext.MessageBox.OK,icon:Ext.Msg.ERROR});};
+    Me.msg.warning = function(message){Ext.Msg.show({title:'Advertencia',message:message,buttons:Ext.MessageBox.OK,icon:Ext.Msg.WARNING});};
+    Ext.application({
+        name: 'etecsa',
+        appFolder: '/static',
+        controllers: [
+            'viewport',
+            'nomenclador_tree',
+            'seguridad_tree',
+            'user',
+            'nomenclador.unidad_organizativa',
+            'nomenclador.departamento',
+            'nomenclador.trabajador',
+            'nomenclador.access_level',
+        ],
+        launch: function() {
+            Ext.create('etecsa.view.viewport');
+        }
+    });
+</script>

@@ -1,0 +1,14 @@
+<b><span style="color: red">Esto es un recordatorio!!!</span></b><br>
+    {% for tarea in tareas %}
+        {% if loop.first %}
+            <p>En el día de mañana <b>{{ tarea.fecha }}</b> usted debe rendir cuentas sobre las Tareas Operativas:</p>
+            <ol>
+        {% endif %}
+        <li>
+            <p><b>{{ tarea.numero }}</b> => {{ tarea.descripcion }}</p>
+            <p>Tarea que inició: {{ tarea.fecha_creacion }} y finaliza: <b>{{ tarea.fecha_final }}</b></p>
+        </li>
+    {% endfor %}
+    </ol>
+<p><span style="color: #b5b8c8">Notificación enviada desde: <b>Web Tareas Operativas <=> </b>
+<a href="http://www.tareaop.etecsa.cu">http://www.tareaop.etecsa.cu</a></span></p>
